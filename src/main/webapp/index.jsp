@@ -10,39 +10,51 @@
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8"
+	src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript" charset="utf8"
+	src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
 </head>
 <body>
 	<div class="container mt-5">
-		<!-- Tabela para Horário de Trabalho -->
-	 <h2>Horário de Trabalho</h2>
 
-    <form id="horarioForm">
-        <label for="entrada">Entrada:</label>
-        <input type="text" id="entrada" maxlength="5" placeholder="HH:MM" required>
+		<h2>Horário de Trabalho</h2>
 
-        <label for="saida">Saída:</label>
-        <input type="text" id="saida" maxlength="5" placeholder="HH:MM" required>
+		<form id="horarioForm">
+			<label for="entrada">Entrada:</label> <input type="text" id="entrada"
+				maxlength="5" placeholder="HH:MM" required> <label
+				for="saida">Saída:</label> <input type="text" id="saida"
+				maxlength="5" placeholder="HH:MM" required>
 
-        <button type="button" onclick="adicionarHorario()">Adicionar</button>
-    </form>
+			<button type="button" onclick="adicionarHorario()">Adicionar</button>
+		</form>
 
-    <table id="horarioTable">
-        <thead>
-            <tr>
-                <th>Entrada</th>
-                <th>Saída</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- As linhas da tabela serão adicionadas dinamicamente aqui -->
-        </tbody>
-    </table>
+		<table id="horarioTable">
+			<thead>
+				<tr>
+					<th>Entrada</th>
+					<th>Saída</th>
+				</tr>
+			</thead>
+			<tbody>
 
-		<!-- Repita o mesmo padrão para as outras tabelas (Marcações, Atraso, Hora Extra) -->
-		<!-- Tabela para Marcações Feitas -->
+			</tbody>
+		</table>
+
 		<h2>Marcações Feitas</h2>
-		<table class="table">
-			<!-- Cabeçalhos e campos para marcações -->
+
+		<form id="marcacaoForm">
+			<label for="entrada">Entrada:</label> <input type="text" id="entrada"
+				maxlength="5" placeholder="HH:MM" required> <label
+				for="saida">Saída:</label> <input type="text" id="saida"
+				maxlength="5" placeholder="HH:MM" required>
+
+			<button type="button" onclick="adicionarMarcacao()">Adicionar</button>
+		</form>
+
+		<table id="marcacaoTable">
 			<thead>
 				<tr>
 					<th>Entrada</th>
@@ -50,54 +62,48 @@
 				</tr>
 			</thead>
 			<tbody>
-				<!-- Linhas da tabela para entrada e saída das marcações -->
-				<tr>
-					<td><input type="text" class="form-control"
-						placeholder="HH:MM" /></td>
-					<td><input type="text" class="form-control"
-						placeholder="HH:MM" /></td>
-					<!-- Adicione um botão para remover a linha se necessário -->
-					<td><button type="button" class="btn btn-danger">Remover</button></td>
-				</tr>
-				<!-- Você pode adicionar mais linhas conforme necessário -->
+
 			</tbody>
 		</table>
+		<div class="container">
+			<h2>Atrasos Contabilizados</h2>
 
-		</tbody>
-		</table>
+			<table class="table table-atraso">
+				<thead>
+					<tr>
+						<th scope="col">Data do Cálculo</th>
+						<th scope="col">Minutos de Atraso</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+					
+					</tr>
+					<tr>
+						
+					</tr>
+				</tbody>
+			</table>
 
-		<!-- Tabela para Atraso -->
-		<h2>Atraso</h2>
-		<table class="table">
-			<!-- Cabeçalhos e campos para atraso -->
-			<thead>
-				<tr>
-					<th>Entrada</th>
-					<th>Saída</th>
-				</tr>
-			</thead>
-			<tbody>
-				<!-- Linhas da tabela para registros de atraso -->
-			</tbody>
-		</table>
+			<h2>Hora Extra</h2>
 
-		<!-- Tabela para Hora Extra -->
-		<h2>Hora Extra</h2>
-		<table class="table">
-			<!-- Cabeçalhos e campos para hora extra -->
-			<thead>
-				<tr>
-					<th>Entrada</th>
-					<th>Saída</th>
-				</tr>
-			</thead>
-			<tbody>
-				<!-- Linhas da tabela para registros de hora extra -->
-			</tbody>
-		</table>
+			<table class="table table-hora-extra">
+				<thead>
+					<tr>
+						<th scope="col">Entrada</th>
+						<th scope="col">Saída</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						
+					</tr>
+					<tr>
+					
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
-
-	<!-- Adicione seus scripts JavaScript aqui para manipulação dos dados e interação do usuário -->
-
 </body>
 </html>

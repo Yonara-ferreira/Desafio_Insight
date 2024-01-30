@@ -4,6 +4,7 @@ $(document).ready(function() {
     $('#tabelaAtraso').DataTable();
     $('#tabelaAtraso').DataTable();
 });
+
 $(document).ready(function () {
     $('.input-hora').inputmask('99:99', { placeholder: '__:__' });
     $('.input-hora').on('keydown', function (event) {
@@ -18,14 +19,24 @@ $(document).ready(function () {
     });
 });
 
+$(document).ready(function() {
+    var horarioEntrada = $('#tabelaRegistros tbody tr:first-child td:first-child input').val();
+    console.log(horarioEntrada);
+});
+
+
 
 	function cadastrarRegistro() {
 		var entrada = $('#entrada').val();
 		var saida = $('#saida').val();
+		
+		console.log('Valor de Entrada:', entrada);
+		console.log('Valor de Saída:', saida);
 
 		var newRow = $('<tr><td>' + entrada + '</td><td>' + saida
 				+ '</td></tr>');
 		$('#tabelaRegistros tbody').append(newRow);
+		
 
 		$('#entrada').val('');
 		$('#saida').val('');
@@ -43,6 +54,50 @@ $(document).ready(function () {
         $('#entradaMarcacao').val('');
         $('#saidaMarcacao').val('');
     }
+    
+    function subtrairTabelas() {
+	 var horarioEntrada = $('#tabelaRegistros tbody tr:first-child td:first-child').val();
+    var horarioSaida = $('#tabelaRegistros tbody tr:first-child td:nth-child(2)').val();
+
+    var marcacaoEntrada = $('#entradaMarcacao').val();
+    var marcacaoSaida = $('#saidaMarcacao').val();
+
+    console.log('Valores obtidos:');
+    console.log('Horário Entrada:', horarioEntrada);
+    console.log('Horário Saída:', horarioSaida);
+    console.log('Marcação Entrada:', marcacaoEntrada);
+    console.log('Marcação Saída:', marcacaoSaida);
+    
+
+    $.ajax({
+        url: '/projeto-marcacoes/horario',
+        type: 'POST',
+        data: {
+            horarioEntrada: horarioEntrada,
+            horarioSaida: horarioSaida,
+            marcacaoEntrada: marcacaoEntrada,
+            marcacaoSaida: marcacaoSaida
+        },
+        contentType: 'application/json',
+        dataType: 'json',
+        success: function(result) {
+			console.log('Resultado da requisição AJAX:', result);
+
+            if (result && result.entrada && result.saida) {
+                alert('Resultado da subtração:\n' +
+                    'Entrada: ' + result.entrada + '\n' +
+                    'Saída: ' + result.saida);
+
+                $('#tabelaResultado').html('<tr><td>' + result.entrada + '</td><td>' + result.saida + '</td></tr>');
+            } else {
+                alert('Resultado da subtração é nulo ou inválido.');
+            }
+        },
+        error: function(error) {
+            alert('Não foi possível realizar a subtração\n' + JSON.stringify(error));
+        }
+    });
+}
 
     function calcularHoraExtra() {
         var data = $('#data').val();
@@ -140,3 +195,7 @@ $(document).ready(function () {
 
     return { atrasos, horasExtras };
 }
+
+
+
+

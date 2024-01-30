@@ -46,4 +46,6 @@ public class Periodo {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
 		return LocalTime.parse(horario, formatter);
 	}
+
+	
 }

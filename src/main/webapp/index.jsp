@@ -24,8 +24,7 @@
 			<label for="entrada">Entrada:</label>
 			 <input type="text" id="entrada" class="input-hora" maxlength="5" placeholder="HH:MM" required>
 			 <label for="saida">Saída:</label> 
-				<input type="text" id="saida" class="input-hora"
-				maxlength="5" placeholder="HH:MM" required>
+				<input type="text" id="saida" class="input-hora" maxlength="5" placeholder="HH:MM" required>
 
 			<button type="button" class="btn btn-primary" onclick="cadastrarRegistro()">Adicionar</button>
 			<button type="button" class="btn btn-secondary" onclick="document.getElementById('horarioForm').reset();">Limpar</button>
@@ -52,7 +51,7 @@
 			<label for="saidaMarcacao">Saída:</label> 
 			<input type="text" id="saidaMarcacao" class="input-hora" maxlength="5" placeholder="HH:MM"  required>
 
-			<button type="button" class="btn btn-primary" onclick="cadastrarMarcacao()">Adicionar</button>
+			<button type="button" class="btn btn-primary" onclick="subtrairTabelas()">Adicionar</button>
 			<button type="button" class="btn btn-secondary" onclick="document.getElementById('marcacaoForm').reset();">Limpar</button>
 		</form>
 
@@ -79,13 +78,13 @@
 					 <input type="text" id="entradaAtrasada" class="input-hora"  maxlength="5" placeholder="HH:MM" required>
 		
 					<label for="saidaAtrasada">Saída Real:</label> 
-					<input type="text" id="saida" class="input-hora" maxlength="5" placeholder="HH:MM" required>
+					<input type="text" id="saidaAtrasada" class="input-hora" maxlength="5" placeholder="HH:MM" required>
 				
 					<button type="button" class="btn btn-primary"  onclick="calcularAtraso()">Calcular Atraso</button>
 					<button type="button" class="btn btn-secondary" onclick="document.getElementById('atrasoForm').reset();">Limpar</button>
 					
 			</form>
-			
+
 			<table id="tabelaAtraso">
 				<thead>
 					<tr>
@@ -98,7 +97,7 @@
 				<tbody>
 				</tbody>
 			</table>
-			
+
 			<h2>Cálculos de Hora Extra</h2>
 			<form id="horaExtraForm">
 				<label for="data">Data:</label> 

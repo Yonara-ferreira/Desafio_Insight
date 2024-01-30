@@ -35,6 +35,7 @@
 				<tr>
 					<th>Entrada</th>
 					<th>Saída</th>
+					<th>Ações</th>
 				</tr>
 			</thead>
 			<tbody>

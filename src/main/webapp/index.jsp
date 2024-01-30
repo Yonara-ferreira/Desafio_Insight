@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Desafio Lógico</title>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
-	rel="stylesheet">
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-<link rel="stylesheet" type="text/css"  href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
-<link rel="stylesheet" type="text/css" href="css/index.css">
-<script type="text/javascript" charset="utf8"src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Lógico</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
 
-
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+    <script src="js/index.js"></script>
 
 </head>
 <body>
@@ -23,9 +21,10 @@
 		<h2>Horário de Trabalho</h2>
 
 		<form id="horarioForm">
-			<label for="entrada">Entrada:</label> <input type="text" id="entrada"
-				maxlength="5" placeholder="HH:MM" required> <label
-				for="saida">Saída:</label> <input type="text" id="saida"
+			<label for="entrada">Entrada:</label>
+			 <input type="text" id="entrada" class="input-hora" maxlength="5" placeholder="HH:MM" required>
+			 <label for="saida">Saída:</label> 
+				<input type="text" id="saida" class="input-hora"
 				maxlength="5" placeholder="HH:MM" required>
 
 			<button type="button" class="btn btn-primary" onclick="cadastrarRegistro()">Adicionar</button>
@@ -49,9 +48,9 @@
 		<form id="marcacaoForm">
 		
 			<label for="#entradaMarcacao">Entrada:</label> 
-			<input type="number" id="entradaMarcacao" maxlength="5" placeholder="HH:MM" required>
+			<input type="text" id="entradaMarcacao" class="input-hora" maxlength="5" placeholder="HH:MM" required>
 			<label for="saidaMarcacao">Saída:</label> 
-			<input type="number" id="saidaMarcacao" maxlength="5" placeholder="HH:MM" required>
+			<input type="text" id="saidaMarcacao" class="input-hora" maxlength="5" placeholder="HH:MM"  required>
 
 			<button type="button" class="btn btn-primary" onclick="cadastrarMarcacao()">Adicionar</button>
 			<button type="button" class="btn btn-secondary" onclick="document.getElementById('marcacaoForm').reset();">Limpar</button>
@@ -75,10 +74,12 @@
 				<form id="atrasoForm">
 					<label for="data">Data:</label>
 					 <input type="date" id="data" required>
+					 
 					 <label for="entrada">Entrada Prevista:</label>
-					 <input type="text" id="entradaAtrasada" maxlength="5" placeholder="HH:MM" required>
+					 <input type="text" id="entradaAtrasada" class="input-hora"  maxlength="5" placeholder="HH:MM" required>
 		
-					<label for="saidaAtrasada">Saída Real:</label> <input type="text" id="saida" maxlength="5" placeholder="HH:MM" required>
+					<label for="saidaAtrasada">Saída Real:</label> 
+					<input type="text" id="saida" class="input-hora" maxlength="5" placeholder="HH:MM" required>
 				
 					<button type="button" class="btn btn-primary"  onclick="calcularAtraso()">Calcular Atraso</button>
 					<button type="button" class="btn btn-secondary" onclick="document.getElementById('atrasoForm').reset();">Limpar</button>
@@ -104,14 +105,14 @@
 					<input type="date" id="data"required> 
 						<label for="entrada">Entrada:</label> 
 				
-				<input type="text" id="entradaHrExtra" maxlength="5" placeholder="HH:MM" required>
-				
+				<input type="text" id="entradaHrExtra" class="input-hora" maxlength="5" placeholder="HH:MM" required>
 				<label for="saida">Saída:</label>
-				<input type="text" id="saidaHrExtra"maxlength="5" placeholder="HH:MM" required> 
-				<label for="cargaHoraria">Carga Horária Diária:</label> 
-				<input type="text" id="cargaHorariaExtra" maxlength="5" placeholder="HH:MM" required>
 				
-				<button type="button" onclick="calcularHoraExtra()">Calcular Hora Extra</button>
+				<input type="text" class="input-hora" id="saidaHrExtra"maxlength="5" placeholder="HH:MM" required> 
+				<label for="cargaHoraria">Carga Horária Diária:</label> 
+				<input type="text" class="input-hora" id="cargaHorariaExtra" maxlength="5" placeholder="HH:MM" required>
+				
+				<button type="button" onclick="calcularAtrasosHorasExtras()">Calcular Hora Extra</button>
 			</form>
 			<table id="tabelaHoraExtra">
 				<thead>
@@ -128,6 +129,7 @@
 			</table>
 		</div>
 	</div>
+	
 	<script src="js/index.js"></script>
 </body>
 </html>

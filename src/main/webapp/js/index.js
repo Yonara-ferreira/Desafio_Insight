@@ -4,6 +4,20 @@ $(document).ready(function() {
     $('#tabelaAtraso').DataTable();
     $('#tabelaAtraso').DataTable();
 });
+$(document).ready(function () {
+    $('.input-hora').inputmask('99:99', { placeholder: '__:__' });
+    $('.input-hora').on('keydown', function (event) {
+     
+        if (event.keyCode === 8) {
+            return true;
+        }
+        var value = $(this).val();
+        if (value.length === 2 && !value.includes(':')) {
+            $(this).val(value + ':');
+        }
+    });
+});
+
 
 	function cadastrarRegistro() {
 		var entrada = $('#entrada').val();
@@ -36,7 +50,7 @@ $(document).ready(function() {
         var saida = $('#saidaHrExtra').val();
         var cargaHoraria = $('#cargaHorariaExtra').val();
         
-        var horaExtra = calcularDiferencaHoras(entrada, saida) - cargaHoraria;
+        var horaExtra = calcularDiferencaHoraExtra(entrada, saida) - cargaHoraria;
 
         var newRow = $('<tr><td>' + data + '</td><td>' + entrada + '</td><td>' + saida + '</td><td>' + cargaHoraria + '</td><td>' + horaExtra + '</td></tr>');
         $('#tabelaHoraExtra tbody').append(newRow);
@@ -48,7 +62,7 @@ $(document).ready(function() {
     }
 
     // Função para calcular a diferença em horas entre dois horários no formato HH:MM
-    function calcularDiferencaHoras(hora1, hora2) {
+    function calcularDiferencaHoraExtra(hora1, hora2) {
         var [hora1h, hora1m] = hora1.split(':').map(Number);
         var [hora2h, hora2m] = hora2.split(':').map(Number);
 
@@ -83,19 +97,19 @@ $(document).ready(function() {
 
   
         function calcularDiferencaHoras(hora1, hora2) {
-            var [hora1h, hora1m] = hora1.split(':').map(Number);
-            var [hora2h, hora2m] = hora2.split(':').map(Number);
+           var [hora1h, hora1m] = hora1.split(':').map(Number);
+           var [hora2h, hora2m] = hora2.split(':').map(Number);
 
-            var diferencaHoras = hora2h - hora1h;
-            var diferencaMinutos = hora2m - hora1m;
+			var diferencaHoras = hora2h - hora1h;
+			var diferencaMinutos = hora2m - hora1m;
 
-            if (diferencaMinutos < 0) {
-                diferencaHoras--;
-                diferencaMinutos += 60;
-            }
+			if (diferencaMinutos < 0) {
+				diferencaHoras--;
+				diferencaMinutos += 60;
+			}
 
-            return diferencaHoras + ':' + (diferencaMinutos < 10 ? '0' : '') + diferencaMinutos;
-        }
+			return diferencaHoras + ':' + (diferencaMinutos < 10 ? '0' : '') + diferencaMinutos;
+		}
     
     function calcularAtrasosHorasExtras(marcacoes, horarioTrabalho) {
     var atrasos = [];

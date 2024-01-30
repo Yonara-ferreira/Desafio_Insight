@@ -10,78 +10,13 @@
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" type="text/css"  href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+<link rel="stylesheet" type="text/css" href="css/index.css">
 <script type="text/javascript" charset="utf8"src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
-<script src="js/index.js"></script>
+
+
 
 </head>
-<!-- <script>
-$(document).ready(function() {
-    $('#tabelaRegistros').DataTable();
-    $('#tabelaMarcacoes').DataTable();
-    $('#tabelaAtraso').DataTable();
-});
-
-	function cadastrarRegistro() {
-		var entrada = $('#entrada').val();
-		var saida = $('#saida').val();
-
-		var newRow = $('<tr><td>' + entrada + '</td><td>' + saida
-				+ '</td></tr>');
-		$('#tabelaRegistros tbody').append(newRow);
-
-		$('#entrada').val('');
-		$('#saida').val('');
-	}
-
-    function cadastrarMarcacao() {
-       
-        var entrada = $('#entradaMarcacao').val();
-        var saida = $('#saidaMarcacao').val();
-        
-        var newRow = $('<tr><td>' + entrada + '</td><td>' + saida
-				+ '</td></tr>');
-		$('#tabelaMarcacoes tbody').append(newRow);
-
-        $('#entradaMarcacao').val('');
-        $('#saidaMarcacao').val('');
-    }
-
-    function calcularHoraExtra() {
-        var data = $('#data').val();
-        var entrada = $('#entradaHrExtra').val();
-        var saida = $('#saidaHrExtra').val();
-        var cargaHoraria = $('#cargaHorariaExtra').val();
-        
-        var horaExtra = calcularDiferencaHoras(entrada, saida) - cargaHoraria;
-
-        var newRow = $('<tr><td>' + data + '</td><td>' + entrada + '</td><td>' + saida + '</td><td>' + cargaHoraria + '</td><td>' + horaExtra + '</td></tr>');
-        $('#tabelaHoraExtra tbody').append(newRow);
-
-        $('#data').val('');
-        $('#entradaHrExtra').val('');
-        $('#saidaHrExtra').val('');
-        $('#cargaHorariaExtra').val('');
-    }
-
-    // Função para calcular a diferença em horas entre dois horários no formato HH:MM
-    function calcularDiferencaHoras(hora1, hora2) {
-        var [hora1h, hora1m] = hora1.split(':').map(Number);
-        var [hora2h, hora2m] = hora2.split(':').map(Number);
-
-        var diferencaHoras = hora2h - hora1h;
-        var diferencaMinutos = hora2m - hora1m;
-
-        if (diferencaMinutos < 0) {
-            diferencaHoras--;
-            diferencaMinutos += 60;
-        }
-
-        return diferencaHoras + (diferencaMinutos / 60);
-    }
-</script> -->
-
 <body>
 	<div class="container mt-5">
 
@@ -162,6 +97,7 @@ $(document).ready(function() {
 				<tbody>
 				</tbody>
 			</table>
+			
 			<h2>Cálculos de Hora Extra</h2>
 			<form id="horaExtraForm">
 				<label for="data">Data:</label> 
@@ -192,5 +128,6 @@ $(document).ready(function() {
 			</table>
 		</div>
 	</div>
+	<script src="js/index.js"></script>
 </body>
 </html>

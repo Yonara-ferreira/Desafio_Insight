@@ -3,8 +3,13 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
-  <display-name>Seu Nome do Projeto</display-name>
-
-  <!-- Configurações adicionais aqui, se necessário -->
+  <servlet>
+    <servlet-name>RegistroPontoServlet</servlet-name>
+    <servlet-class>servlets.RegistroPontoServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>RegistroPontoServlet</servlet-name>
+    <url-pattern>/RegistroPontoServlet</url-pattern>
+</servlet-mapping>
 
 </web-app>
